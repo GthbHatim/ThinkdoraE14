@@ -16,6 +16,17 @@ else
     #esto otro es el Node.Js junto a Homebrew
     curl -o- https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash
     brew install node@24
+    #arreglando el problema de cpus intel con el throttle
+    sudo dnf remove thermald -y
+    sudo dnf copr enable abn/throttled
+    sudo dnf install -y throttled
+    sudo systemctl enable --now throttled
+    #lenovo vantage
+    sudo dnf install zenity xinput NetworkManager pipewire-pulseaudio
+    git clone https://github.com/niizam/vantage.git
+    cd vantage
+    sudo make install
+
 sleep 10
 print "eso es todo"
 
