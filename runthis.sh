@@ -15,7 +15,7 @@ else
     curl -fsS https://dl.brave.com/install.sh | sh
     #esto otro es el Node.Js junto a Homebrew
     curl -o- https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash
-    brew install node@24
+    brew install node@24 -y
     #arreglando el problema de cpus intel con el throttle
     sudo dnf remove thermald -y
     sudo dnf copr enable abn/throttled
@@ -25,7 +25,10 @@ else
     sudo dnf install zenity xinput NetworkManager pipewire-pulseaudio
     git clone https://github.com/niizam/vantage.git
     cd vantage
-    sudo make install
+    sudo make install 
+    #otras cosas misc.
+    sudo dnf install libfftw3-dev libasound2-dev libncursesw5-dev libpulse-dev libtool automake libiniparser-dev libsdl2-2.0-0 libsdl2-dev -y
+
 
 sleep 10
 print "eso es todo"
